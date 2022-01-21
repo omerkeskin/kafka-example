@@ -1,0 +1,27 @@
+{
+  "name": "kafka-example",
+  "version": "1.0.0",
+  "description": "Kafka pub-sub",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/omerkeskin/kafka-example.git"
+  },
+  "keywords": [
+    "kafka",
+    "zookeeper",
+    "nodejs"
+  ],
+  "author": "Ömer Keskin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/omerkeskin/kafka-example/issues"
+  },
+  "homepage": "https://github.com/omerkeskin/kafka-example#readme",
+  "dependencies": {
+    "kafkajs": "^1.15.0"
+  }
+}
