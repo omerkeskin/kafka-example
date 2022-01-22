@@ -18,7 +18,7 @@ async function createProducer(){
   try {
       const kafka = new Kafka({
         clientId: 'kafka_log_store_client',
-        brokers: ['192.168.0.106:9092']
+        brokers: ['localhost:9092']
       });
 
       const producer = kafka.producer();

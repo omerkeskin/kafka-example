@@ -3,7 +3,6 @@ const { Kafka } = require('kafkajs');
 // node src/consumer.js Logs
 const topic_name = 'LogStoreTopic';
 createConsumer();
-let myMessages = [{value:'lorem', partition:0}, {value:'epsum', partition:0},{value:'system ex', partition:0},{value:'blue screen', partition:0}];
 
 async function createConsumer(){
 
@@ -11,7 +10,7 @@ async function createConsumer(){
   try {
       const kafka = new Kafka({
         clientId: 'kafka_log_store_client',
-        brokers: ['192.168.0.106:9092']
+        brokers: ['localhost:9092']
       });
 
       const consumer = kafka.consumer({

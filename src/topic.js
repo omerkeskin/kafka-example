@@ -9,7 +9,7 @@ async function createTopic(){
       //Admin stuff
       const kafka = new Kafka({
         clientId: 'kafka_log_store_client',
-        brokers: ['192.168.0.106:9092']
+        brokers: ['localhost:9092']
       });
 
       const admin = kafka.admin();
