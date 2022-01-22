@@ -8,7 +8,7 @@ async function createTopic(){
   try {
       //Admin stuff
       const kafka = new Kafka({
-        clientId: 'kafka_ornek_1',
+        clientId: 'kafka_log_store_client',
         brokers: ['192.168.0.106:9092']
       });
 
@@ -19,13 +19,10 @@ async function createTopic(){
       await admin.createTopics({
         topics: [
           {
-            topic: 'Logs',
-            numPartitions: 1
-          }, 
-          {
-            topic: 'Logs2',
+            topic: 'LogStoreTopic',
             numPartitions: 2
-          }]
+          }
+        ]
       });
       console.log('Kafka topics created...');
       await admin.disconnect();

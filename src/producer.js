@@ -1,14 +1,23 @@
 const { Kafka } = require('kafkajs');
+const log_data = require('./log_store/system_logs.json');
+
+// node src/producer.js Logs
+const topic_name = 'LogStoreTopic';
 
 createProducer();
-let myMessages = [{value:'lorem', partition:0}, {value:'epsum', partition:0},{value:'system ex', partition:0},{value:'blue screen', partition:0}];
+let messages = log_data.map( item => {
+   return {
+     value: JSON.stringify(item),
+     partition: item.type === 'system' ? 0 : 1
+   }
+});
 
 async function createProducer(){
 
 
   try {
       const kafka = new Kafka({
-        clientId: 'kafka_ornek_1',
+        clientId: 'kafka_log_store_client',
         brokers: ['192.168.0.106:9092']
       });
 
@@ -18,8 +27,8 @@ async function createProducer(){
       console.log('Kafka connected to producer');
       
       const message_result = await producer.send({
-        topic: 'Logs',
-        messages: myMessages
+        topic: topic_name,
+        messages: messages
       });
 
       console.log('Send message successfully ', JSON.stringify(message_result));
