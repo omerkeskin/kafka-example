@@ -5,6 +5,10 @@ Kafka;
 docker run --name kafka -p 9092:9092 -e KAFKA_ZOOKEEPER_CONNECT=192.168.0.106:2181 -e KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://192.168.0.106:9092 -e KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR=1 confluentinc/cp-kafka
 
 Kafka 3 commands : 
+
+./zookeeper-server-start.sh ../config/zookeeper.properties
+./kafka-server-start.sh ../config/server.properties
+
 ./kafka-topics.sh --create --partitions 1 --replication-factor 1 --topic quickstart-events --bootstrap-server localhost:9092
 ./kafka-console-producer.sh --broker-list localhost:9092 --topic quickstart-events-rep
 ./kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic quickstart-events-rep --from-beginning
@@ -14,5 +18,4 @@ Kafka 3 commands :
 ./kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic quickstart-events --from-beginning -property "key.separator= - " --property "print.key=true" -group my_group
 
 ./kafka-topics.sh --bootstrap-server localhost:9092 --list
-
 
