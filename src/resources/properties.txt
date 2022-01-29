@@ -8,6 +8,7 @@ Kafka 3 commands :
 
 ./zookeeper-server-start.sh ../config/zookeeper.properties
 ./kafka-server-start.sh ../config/server.properties
+./kafka-server-start.sh ../config/server-2.properties
 
 ./kafka-topics.sh --create --partitions 1 --replication-factor 1 --topic quickstart-events --bootstrap-server localhost:9092
 ./kafka-console-producer.sh --broker-list localhost:9092 --topic quickstart-events-rep
