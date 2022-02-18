@@ -20,3 +20,8 @@ Kafka 3 commands :
 
 ./kafka-topics.sh --bootstrap-server localhost:9092 --list
 
+######### Windows ##########
+
+zookeeper-server-start.bat ../../config/zookeeper.properties
+kafka-server-start.bat ../../config/server.properties
+
